@@ -45,7 +45,7 @@ public class ControlsGUI extends JFrame implements ActionListener {
 	JButton downp2 = new JButton("Down Arrow");
 	JButton leftp2 = new JButton("Left Arrow");
 	JButton rightp2 = new JButton("Right Arrow");
-	JButton firep2 = new JButton("M");
+	JButton firep2 = new JButton("Enter");
 	JButton secondaryFirep2 = new JButton(",");
 	
 	JPanel buildControls() {
@@ -94,19 +94,5 @@ public class ControlsGUI extends JFrame implements ActionListener {
     	setSize(500, 300);
     	setLocationRelativeTo(null);
 	}
-	public void actionPerformed(ActionEvent e) {
-		/*
-		if ("change".equals(e.getActionCommand())) {
-			((JButton) e.getSource()).setText("");
-	//		localEng.clearLastKey();
-	//		do {
-	//			try { Thread.sleep(100); }
-	//			catch (InterruptedException e2) {}
-				localEng.dbgPrint(Integer.toString(localEng.getLastKey()));
-	//			if (localEng.getLastKey()!=0)
-					((JButton) e.getSource()).setText(localEng.getKeyDesc(localEng.getLastKey()));
-	//		} while (localEng.getLastKey()==0);
-		}
-		*/
-	}
+	public void actionPerformed(ActionEvent e) {}
 }
