@@ -12,7 +12,7 @@ public class GameType {
 			 (char) jgame.impl.JGEngineInterface.KeyDown,
 			 (char) jgame.impl.JGEngineInterface.KeyLeft,
 			 (char) jgame.impl.JGEngineInterface.KeyRight, 
-			 'M',',', gameInfo);
+			 '\n',',', gameInfo);
 	gameInfo.allTanks.add(tank1);
 	gameInfo.allTanks.add(tank2);
 	}
