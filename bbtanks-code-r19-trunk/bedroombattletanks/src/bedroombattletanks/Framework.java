@@ -4,8 +4,6 @@ import jgame.*;
 import jgame.platform.*;
 
 
-
-
 @SuppressWarnings("serial")
 
 public class Framework extends JGEngine {

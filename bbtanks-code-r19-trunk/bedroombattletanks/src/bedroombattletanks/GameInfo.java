@@ -39,7 +39,6 @@ public class GameInfo {
 	int tankSpeed = 3;
 	
 	// Reloading 
-	//int[] bulletTimer = new int[5];	
 	int reloadTime = 10;
 	
 	// Winner

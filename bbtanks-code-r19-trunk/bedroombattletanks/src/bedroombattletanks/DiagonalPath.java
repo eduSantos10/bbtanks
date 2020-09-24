@@ -16,13 +16,6 @@ public class DiagonalPath {
 		localFinishX = finishX;
 		localFinishY = finishY;
 		queue = findPath();
-		/* Debug
-		for (int[] item : queue) {
-			System.out.print(item[0]);
-			System.out.print(", ");
-			System.out.println(item[1]);
-		}
-		*/
 	};
 	
 	ArrayList<int[]> findPath() {

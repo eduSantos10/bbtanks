@@ -37,13 +37,6 @@ public class PathFinder {
 			System.out.print(item[2]);
 			System.out.println();
 		}
-	/*	queue = removeTail(queue,1);
-		for (int[] item : queue) {
-			System.out.print(item[0]);
-			System.out.print(", ");
-			System.out.print(item[1]);
-			System.out.println();
-		} */
 		queue = findPath(queue);
 		for (int[] item : queue) {
 			System.out.print(item[0]);

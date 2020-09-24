@@ -35,8 +35,5 @@ public abstract class Obstacle extends JGObject {
 			}
 		}
 		
-		public void paint() {
-		}
-		
 }
 
