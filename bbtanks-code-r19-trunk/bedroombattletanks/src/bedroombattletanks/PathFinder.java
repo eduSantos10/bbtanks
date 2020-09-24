@@ -122,29 +122,7 @@ public class PathFinder {
 		}
 		
 		return queue;
-	}
-	
-	/* Unused Code
-	ArrayList<int[]> removeTail(ArrayList<int[]> fullPathList, int numberOfTails) {
-		ArrayList<int[]> tailToRemove = new ArrayList<int[]>();
-		for (int i = fullPathList.size()-1; i>0; i--) {
-			if (!(fullPathList.get(i)[0]==localStartX && fullPathList.get(i)[1]==localStartY)) {
-				tailToRemove.add(fullPathList.get(i));
-			} else {
-				numberOfTails--;
-				if (numberOfTails>0) {
-					tailToRemove.add(fullPathList.get(i));
-				} else {
-					break;
-				}
-			}
-		}
-		for (int[] tailItem : tailToRemove)
-			fullPathList.remove(tailItem);
-		return fullPathList;
-	}
-	*/
-	
+	}	
 	
 	ArrayList<int[]> findPath(ArrayList<int[]> pathList) {
 		
