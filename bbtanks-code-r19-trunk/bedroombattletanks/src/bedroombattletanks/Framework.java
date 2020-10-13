@@ -107,6 +107,48 @@ public class Framework extends JGEngine {
 		// if timer is expired.
 		// check if the game has ended
 
+		gameLostAction();
+
+		for (Effect effect : gameInfo.activeEffects) {
+			effect.framesLeft--;
+			if (effect.framesLeft <= 0) {
+				effect.finish();
+			}
+		}
+		// moves all the objects that need to move
+
+		moveObjects(null, // object name prefix of objects to move (null means any)
+				0 // object collision ID of objects to move (0 means any)
+		);
+
+		// Bullet - Tank Collision
+		checkCollision(1, // cids of objects that our objects should collide with
+				2 // cids of the objects whose hit() should be called
+		);
+		checkCollision(1, 4);
+		// Fireball - Tank Collision
+		checkCollision(64, 2);
+		checkCollision(64, 4);
+
+		// Flag/Base - Tank Collision
+		checkCollision(2, 8);
+		checkCollision(4, 8);
+
+		// Tank - Power Up collision
+		checkCollision(2, 16);
+		checkCollision(4, 16);
+
+		// Bullet - Obstacle Collision
+		checkCollision(1, 32);
+
+		// Fireball - Obstacle Collision
+		checkCollision(64, 32);
+
+		// Bullet - Fireball Collision
+		checkCollision(1, 64);
+	}
+
+	private void gameLostAction() {
 		if (!gameInfo.gameLost) {
 			if (powerUpCountDown <= 0) {
 				double newPowerUpNo = random(0, 100);
@@ -152,44 +194,6 @@ public class Framework extends JGEngine {
 				}
 			}
 		}
-
-		for (Effect effect : gameInfo.activeEffects) {
-			effect.framesLeft--;
-			if (effect.framesLeft <= 0) {
-				effect.finish();
-			}
-		}
-		// moves all the objects that need to move
-
-		moveObjects(null, // object name prefix of objects to move (null means any)
-				0 // object collision ID of objects to move (0 means any)
-		);
-
-		// Bullet - Tank Collision
-		checkCollision(1, // cids of objects that our objects should collide with
-				2 // cids of the objects whose hit() should be called
-		);
-		checkCollision(1, 4);
-		// Fireball - Tank Collision
-		checkCollision(64, 2);
-		checkCollision(64, 4);
-
-		// Flag/Base - Tank Collision
-		checkCollision(2, 8);
-		checkCollision(4, 8);
-
-		// Tank - Power Up collision
-		checkCollision(2, 16);
-		checkCollision(4, 16);
-
-		// Bullet - Obstacle Collision
-		checkCollision(1, 32);
-
-		// Fireball - Obstacle Collision
-		checkCollision(64, 32);
-
-		// Bullet - Fireball Collision
-		checkCollision(1, 64);
 	}
 
 	/**
