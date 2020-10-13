@@ -129,7 +129,11 @@ class Tank extends JGObject {
 						itHit = true;
 					}	
 				}
+				//orientação do tank no mapa
+				orientation(hit, itHit);
 				
+			}
+			private void orientation(int hit, boolean itHit) {
 				// bounce off the borders of the screen.
 				if (tanksFriction <= 0) {
 					if (x >  eng.pfWidth() && xspeed>0) xspeed = -xspeed;
@@ -257,7 +261,6 @@ class Tank extends JGObject {
 				case 14: setGraphic("tank_3150"); break;
 				case 15: setGraphic("tank_3375"); break;
 				}
-				
 			}
 			
 			
