@@ -133,6 +133,7 @@ class Tank extends JGObject {
 				orientation(hit, itHit);
 				
 			}
+			
 			private void orientation(int hit, boolean itHit) {
 				// bounce off the borders of the screen.
 				if (tanksFriction <= 0) {
@@ -203,18 +204,18 @@ class Tank extends JGObject {
 				// this stops the movement from being jerky
 				
 				 if (keyDown == false) {
-                     if ((xspeed < tanksFriction && xspeed > -tanksFriction)||(yspeed < tanksFriction && yspeed > -tanksFriction)) {
+                     if (isFrictioned()) {
                              xspeed = 0;
                              yspeed = 0;
                      } else {
                              if (xspeed > 0)
-                                     xspeed -= tanksFriction;
+                            	 decreaseFrictionX();
                              if (xspeed < 0)
-                                     xspeed += tanksFriction;
+                            	 sumFrictionX();
                              if (yspeed > 0)
-                                     yspeed -= tanksFriction;
+                            	 decreaseFrictionY();
                              if (yspeed < 0)
-                                     yspeed += tanksFriction;
+                            	 sumFrictionY();
                      }
              }
 				
@@ -263,6 +264,22 @@ class Tank extends JGObject {
 				}
 			}
 			
+			public Boolean isFrictioned() {
+				return (xspeed < tanksFriction && xspeed > -tanksFriction)||(yspeed < tanksFriction && yspeed > -tanksFriction);
+			}
+			
+			public void sumFrictionY(){
+				yspeed += tanksFriction;
+			}
+			public void decreaseFrictionY(){
+				yspeed -= tanksFriction;
+			}
+			public void sumFrictionX(){
+				 xspeed += tanksFriction;
+			}
+			public void decreaseFrictionX(){
+				xspeed -= tanksFriction;
+			}
 			
 
 			// Removes the tank and bullet when it is hit
