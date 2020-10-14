@@ -38,11 +38,7 @@ class Tank extends JGObject {
 			// Method that is used to change orientation value so they stay between 0 and 360 degrees
 			
 			private int orientationAdd(int orientation, int angle) {
-				if ((orientation+angle)>=360) 
-					return (orientation+angle)-360;
-				if ((orientation+angle)<0) 
-					return (orientation+angle)+360;
-				return orientation+angle;
+				return (orientation + angle) >= 360 ? (orientation+angle) - 360 : (orientation + angle) < 0 ? (orientation + angle) + 360 : orientation + angle;
 			}
 			private int rangeMaker(int orientation) {
 				for (int i = 0; i <= 15; i++) {
@@ -99,6 +95,7 @@ class Tank extends JGObject {
 				}
 				
 				}
+				
 			public void move() {
 				
 				timer++;
@@ -235,31 +232,28 @@ class Tank extends JGObject {
 							localInfo.tankData[(colid/2)-1].secondaryFire++;
 						}
 				}
-			
-				 
-				
-				
-				switch (rangeMaker(orientation)) {
-				case 0: setGraphic("tank_0000"); break;
-				case 1: setGraphic("tank_0225"); break;
-				case 2: setGraphic("tank_0450"); break;
-				case 3: setGraphic("tank_0675"); break;
-				case 4: setGraphic("tank_0900"); break;
-				case 5: setGraphic("tank_1125"); break;
-				case 6: setGraphic("tank_1350"); break;
-				case 7: setGraphic("tank_1575"); break;
-				case 8: setGraphic("tank_1800"); break;
-				case 9: setGraphic("tank_2025"); break;
-				case 10: setGraphic("tank_2250"); break;
-				case 11: setGraphic("tank_2475"); break;				
-				case 12: setGraphic("tank_2700"); break;
-				case 13: setGraphic("tank_2925"); break;
-				case 14: setGraphic("tank_3150"); break;
-				case 15: setGraphic("tank_3375"); break;
-				}
 				
 			}
-			
+			public void setGraphic() {
+				switch (rangeMaker(orientation)) {
+					case 0: setGraphic("tank_0000"); break;
+					case 1: setGraphic("tank_0225"); break;
+					case 2: setGraphic("tank_0450"); break;
+					case 3: setGraphic("tank_0675"); break;
+					case 4: setGraphic("tank_0900"); break;
+					case 5: setGraphic("tank_1125"); break;
+					case 6: setGraphic("tank_1350"); break;
+					case 7: setGraphic("tank_1575"); break;
+					case 8: setGraphic("tank_1800"); break;
+					case 9: setGraphic("tank_2025"); break;
+					case 10: setGraphic("tank_2250"); break;
+					case 11: setGraphic("tank_2475"); break;				
+					case 12: setGraphic("tank_2700"); break;
+					case 13: setGraphic("tank_2925"); break;
+					case 14: setGraphic("tank_3150"); break;
+					case 15: setGraphic("tank_3375"); break;
+				}	
+			}			
 			
 
 			// Removes the tank and bullet when it is hit
